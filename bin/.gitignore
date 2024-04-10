@@ -1,0 +1,16 @@
+/outdated
+/Makefile.win
+*.bak
+*.gch
+*.o
+*.exe
+*.zip
+/build/SARDA_private.res
+/SARDA.bookmarks
+/SARDA.debug
+/SARDA.dev
+/SARDA.layout
+/SARDA_private.h
+/SARDA_private.rc
+/main.s
+
