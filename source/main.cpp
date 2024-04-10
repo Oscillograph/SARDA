@@ -22,10 +22,13 @@ int main(int argc, char** argv) {
 	SARDA_CONSOLE_LOG("Load configuration: recording");
 	// 7. Get configuration of physical models to process: geometrical opticals, electro-magnetic computations
 	SARDA_CONSOLE_LOG("Load configuration: physics");
+	// 8. Load scene objects
+	SARDA_CONSOLE_LOG("Load scene objects");
 	SARDA_CONSOLE_LOG("System configuration complete.");
 	
-	// 8. Simulate the recorded signal in one go (can be paralleled)
+	// 9. Simulate the recorded signal in one go (can be paralleled)
 	SARDA_CONSOLE_LOG("Simulation...");
+	sarda::GlobalConfigurationStorage;
 	std::pair<double, double> data;
 	data.first = 0.0;
 	data.second = 1.1;
@@ -47,10 +50,10 @@ int main(int argc, char** argv) {
 	
 	SARDA_CONSOLE_LOG("Simulation complete.");
 	
-	// 9. Save the result.
+	// 10. Save the result.
 	SARDA_CONSOLE_LOG("Save the results...");
 	SARDA_CONSOLE_LOG("Save successful.");
-	// [10. Show the result.] - optional
+	// [11. Show the result.] - optional
 	
 	
 	return 0;

@@ -3,6 +3,8 @@
 
 #include <include/core/core.h>
 
+#include <include/core/config.h>
+
 namespace sarda
 {
 	
