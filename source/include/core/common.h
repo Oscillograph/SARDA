@@ -9,4 +9,6 @@
 #include <vector> // for data
 #include <complex> // for complex values
 
+#include <external/armadillo.h> // for mathematics
+
 #endif

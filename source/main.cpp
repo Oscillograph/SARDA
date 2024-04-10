@@ -33,8 +33,17 @@ int main(int argc, char** argv) {
 	hello.real(data.first);
 	hello.imag(data.second);
 	
+	arma::cx_mat* ts = new arma::cx_mat(1024, 65536);
+//	ts->randu();
+	std::complex<double>* value;
+	value = &(ts->at(100, 200));
+	
 	SARDA_CONSOLE_RED("x: ", data.first, "; y: ", data.second);
-	SARDA_CONSOLE_RED("cx: ", hello.real(), "; cy: ", hello.imag());
+	SARDA_CONSOLE_RED("cx: ", value->real(), "; cy: ", value->imag());
+	SARDA_CONSOLE_RED("TS Matrix size is: ", ts->size());
+	SARDA_CONSOLE_TEAL("Size of double is: ", sizeof(double));
+	SARDA_CONSOLE_TEAL("Size of std::complex<double> is: ", sizeof(std::complex<double>));
+	delete ts;
 	
 	SARDA_CONSOLE_LOG("Simulation complete.");
 	
