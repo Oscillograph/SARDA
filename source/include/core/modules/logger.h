@@ -2,7 +2,6 @@
 #define SARDA_LOGGER_H
 
 #include <include/core/proto-core.h>
-//#include <color-console/color.hpp>
 #include <include/core/utils/time.h>
 #include <external/utf8.h>
 
@@ -84,9 +83,9 @@ namespace sarda
 	#define SARDA_CONSOLE_GREEN(...)			::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 8);
 	#define SARDA_CONSOLE_CAPTION_BLACK(...)	::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 9);
 	
-	#define SARDA_CONSOLE_LOG(...)				::sarda::Logger::Text("App: ", __VA_ARGS__); ::sarda::Logger::Flush(0, 1);
-	#define SARDA_CONSOLE_ERROR(...)			::sarda::Logger::Text("App: ", __VA_ARGS__); ::sarda::Logger::Flush(0, 3);
-	#define SARDA_CONSOLE_DEBUG(...)			::sarda::Logger::Text("App: ", __VA_ARGS__); ::sarda::Logger::Flush(1, 1);
+	#define SARDA_CONSOLE_LOG(...)				::sarda::Logger::Text("SARDA: ", __VA_ARGS__); ::sarda::Logger::Flush(0, 1);
+	#define SARDA_CONSOLE_ERROR(...)			::sarda::Logger::Text("SARDA: ", __VA_ARGS__); ::sarda::Logger::Flush(0, 3);
+	#define SARDA_CONSOLE_DEBUG(...)			::sarda::Logger::Text("SARDA: ", __VA_ARGS__); ::sarda::Logger::Flush(1, 1);
 	#define SARDA_CONSOLE_ASSERT(x, ...)		{ if (!(x)) { SARDA_CORE_ERROR(__VA_ARGS__); std::exit(-4); } }
 	
 	#define SARDA_TRACE(...)					SARDA_CONSOLE_GREY("Trace: ", __VA_ARGS__)

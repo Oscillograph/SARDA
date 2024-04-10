@@ -6,4 +6,7 @@
 #include <string>
 #include <time.h> // for core/utils/time.h
 
+#include <vector> // for data
+#include <complex> // for complex values
+
 #endif
