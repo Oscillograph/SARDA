@@ -2,6 +2,7 @@
 #define SARDELKA_CONFIG_H
 
 #include <include/core/core.h>
+#include <include/types/math.h>
 
 namespace SARDELKA
 {
@@ -11,17 +12,25 @@ namespace SARDELKA
 		Continuous			= 1
 	};
 	
+	struct AntennaConfiguration
+	{
+		std::vector<precision> DNA = {1.0};
+		precision gain = 1.0f;
+	};
+	
 	// TODO: design configuration storage architecture
 	struct TransmitterConfiguration
 	{
 		precision transmitPower = 1.0; // Watts
 		Vec3 position = {0.0, 0.0, 0.0};
+		AntennaConfiguration antenna;
 	};
 	
 	struct ReceiverConfiguration
 	{
 		precision detectionLevel = 0.1e-9; // Watts
 		Vec3 position = {0.0, 0.0, 0.0};
+		AntennaConfiguration antenna;
 	};
 	
 	struct CarrierConfiguration

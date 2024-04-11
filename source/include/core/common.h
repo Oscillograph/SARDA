@@ -8,6 +8,8 @@
 
 #include <vector> // for data
 #include <complex> // for complex values
+#include <cmath> // for arithmetic with complex values
+#include <algorithm> // std::fill
 
 #include <external/armadillo.h> // for mathematics
 

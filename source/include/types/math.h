@@ -1,7 +1,8 @@
 #ifndef SARDELKA_MATH_H
 #define SARDELKA_MATH_H
 
-#include <include/core/types/math/math_complex.h>
+#include <include/core/proto-core.h>
+#include <include/types/math/math_complex.h>
 
 
 // alias
