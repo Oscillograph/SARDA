@@ -1,7 +1,7 @@
 #include <include/core/modules/logger.h>
 #include <external/color-console/color.hpp>
 
-namespace sarda
+namespace SARDELKA
 {
 	std::string Logger::m_u8string = "";
 	std::u32string Logger::m_u32string = U"";

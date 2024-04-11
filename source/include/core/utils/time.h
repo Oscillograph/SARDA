@@ -1,9 +1,9 @@
-#ifndef SARDA_TIME_H
-#define SARDA_TIME_H
+#ifndef SARDELKA_TIME_H
+#define SARDELKA_TIME_H
 
 #include <include/core/proto-core.h>
 
-namespace sarda
+namespace SARDELKA
 {
 	class Timestep {
 	public:

@@ -1,11 +1,11 @@
-#ifndef SARDA_SARDA_H
-#define SARDA_SARDA_H
+#ifndef SARDELKA_SARDELKA_H
+#define SARDELKA_SARDELKA_H
 
 #include <include/core/core.h>
 
 #include <include/core/config.h>
 
-namespace sarda
+namespace SARDELKA
 {
 	
 }

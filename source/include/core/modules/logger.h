@@ -1,11 +1,11 @@
-#ifndef SARDA_LOGGER_H
-#define SARDA_LOGGER_H
+#ifndef SARDELKA_LOGGER_H
+#define SARDELKA_LOGGER_H
 
 #include <include/core/proto-core.h>
 #include <include/core/utils/time.h>
 #include <external/utf8.h>
 
-namespace sarda
+namespace SARDELKA
 {
 	typedef std::basic_stringstream<char32_t> u32stringstream;
 	
@@ -21,7 +21,7 @@ namespace sarda
 			m_u32string = U""; // clear utf32 string
 			
 			// add args to utf8 string stream
-			m_u8stream << "[" << sarda::GetDateAndTime() << "] ";
+			m_u8stream << "[" << SARDELKA::GetDateAndTime() << "] ";
 			(u8add(std::forward<Args>(args)), ...);
 			m_u8stream << "\n";
 			m_u8string = m_u8stream.str();
@@ -71,28 +71,28 @@ namespace sarda
 		static u32stringstream m_u32stream;
 	};
 	
-	#define SARDA_CONSOLE_GREY(...)				::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, -1);
-	#define SARDA_CONSOLE_YELLOW(...)			::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 0);
-	#define SARDA_CONSOLE_WHITE(...)			::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 1);
-	#define SARDA_CONSOLE_DARKRED(...)			::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 2);
-	#define SARDA_CONSOLE_RED(...)				::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 3);
-	#define SARDA_CONSOLE_TEAL(...)				::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 4);
-	#define SARDA_CONSOLE_CYAN(...)				::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 5);
-	#define SARDA_CONSOLE_BLUE(...)				::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 6);
-	#define SARDA_CONSOLE_MAGENTA(...)			::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 7);
-	#define SARDA_CONSOLE_GREEN(...)			::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 8);
-	#define SARDA_CONSOLE_CAPTION_BLACK(...)	::sarda::Logger::Message(__VA_ARGS__); ::sarda::Logger::Flush(0, 9);
+	#define SARDELKA_CONSOLE_GREY(...)				::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, -1);
+	#define SARDELKA_CONSOLE_YELLOW(...)			::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 0);
+	#define SARDELKA_CONSOLE_WHITE(...)			::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 1);
+	#define SARDELKA_CONSOLE_DARKRED(...)			::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 2);
+	#define SARDELKA_CONSOLE_RED(...)				::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 3);
+	#define SARDELKA_CONSOLE_TEAL(...)				::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 4);
+	#define SARDELKA_CONSOLE_CYAN(...)				::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 5);
+	#define SARDELKA_CONSOLE_BLUE(...)				::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 6);
+	#define SARDELKA_CONSOLE_MAGENTA(...)			::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 7);
+	#define SARDELKA_CONSOLE_GREEN(...)			::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 8);
+	#define SARDELKA_CONSOLE_CAPTION_BLACK(...)	::SARDELKA::Logger::Message(__VA_ARGS__); ::SARDELKA::Logger::Flush(0, 9);
 	
-	#define SARDA_CONSOLE_LOG(...)				::sarda::Logger::Text("SARDA: ", __VA_ARGS__); ::sarda::Logger::Flush(0, 1);
-	#define SARDA_CONSOLE_ERROR(...)			::sarda::Logger::Text("SARDA: ", __VA_ARGS__); ::sarda::Logger::Flush(0, 3);
-	#define SARDA_CONSOLE_DEBUG(...)			::sarda::Logger::Text("SARDA: ", __VA_ARGS__); ::sarda::Logger::Flush(1, 1);
-	#define SARDA_CONSOLE_ASSERT(x, ...)		{ if (!(x)) { SARDA_CORE_ERROR(__VA_ARGS__); std::exit(-4); } }
+	#define SARDELKA_CONSOLE_LOG(...)				::SARDELKA::Logger::Text("SARDELKA: ", __VA_ARGS__); ::SARDELKA::Logger::Flush(0, 1);
+	#define SARDELKA_CONSOLE_ERROR(...)			::SARDELKA::Logger::Text("SARDELKA: ", __VA_ARGS__); ::SARDELKA::Logger::Flush(0, 3);
+	#define SARDELKA_CONSOLE_DEBUG(...)			::SARDELKA::Logger::Text("SARDELKA: ", __VA_ARGS__); ::SARDELKA::Logger::Flush(1, 1);
+	#define SARDELKA_CONSOLE_ASSERT(x, ...)		{ if (!(x)) { SARDELKA_CORE_ERROR(__VA_ARGS__); std::exit(-4); } }
 	
-	#define SARDA_TRACE(...)					SARDA_CONSOLE_GREY("Trace: ", __VA_ARGS__)
-	#define SARDA_INFO(...)						SARDA_CONSOLE_GREY("Info: ", __VA_ARGS__)
-	#define SARDA_WARN(...)						SARDA_CONSOLE_YELLOW("Warning: ", __VA_ARGS__)
-	#define SARDA_ERROR(...)					SARDA_CONSOLE_RED("Error: ", __VA_ARGS__)
-	#define SARDA_CRITICAL(...)					SARDA_CONSOLE_RED("Critical Error: ", __VA_ARGS__)
+	#define SARDELKA_TRACE(...)					SARDELKA_CONSOLE_GREY("Trace: ", __VA_ARGS__)
+	#define SARDELKA_INFO(...)						SARDELKA_CONSOLE_GREY("Info: ", __VA_ARGS__)
+	#define SARDELKA_WARN(...)						SARDELKA_CONSOLE_YELLOW("Warning: ", __VA_ARGS__)
+	#define SARDELKA_ERROR(...)					SARDELKA_CONSOLE_RED("Error: ", __VA_ARGS__)
+	#define SARDELKA_CRITICAL(...)					SARDELKA_CONSOLE_RED("Critical Error: ", __VA_ARGS__)
 }
 
 #endif

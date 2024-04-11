@@ -1,17 +1,10 @@
-#ifndef SARDA_CONFIG_H
-#define SARDA_CONFIG_H
+#ifndef SARDELKA_CONFIG_H
+#define SARDELKA_CONFIG_H
 
 #include <include/core/core.h>
 
-namespace sarda
+namespace SARDELKA
 {
-	struct Vec3
-	{
-		double x = 0.0; // meters
-		double y = 0.0; // meters
-		double z = 0.0; // meters
-	};
-	
 	enum class CarrierMovement : int 
 	{
 		StopAndGo			= 0,
@@ -21,13 +14,13 @@ namespace sarda
 	// TODO: design configuration storage architecture
 	struct TransmitterConfiguration
 	{
-		double transmitPower = 1.0; // Watts
+		precision transmitPower = 1.0; // Watts
 		Vec3 position = {0.0, 0.0, 0.0};
 	};
 	
 	struct ReceiverConfiguration
 	{
-		double detectionLevel = 0.0000000001; // Watts
+		precision detectionLevel = 0.1e-9; // Watts
 		Vec3 position = {0.0, 0.0, 0.0};
 	};
 	
@@ -47,27 +40,27 @@ namespace sarda
 	
 	struct SignalConfiguration
 	{
-		double carrierFrequency = 10000000000; // Hz
-		double LFMBase = 100000000; // Hz
-		double LFMInterval = 0.001; // seconds
-		double LFMSpeed = LFMBase / LFMInterval; // Hz / seconds
+		precision carrierFrequency = 10e9; // Hz
+		precision LFMBase = 0.1e9; // Hz
+		precision LFMInterval = 1e-3; // seconds
+		precision LFMSpeed = LFMBase / LFMInterval; // Hz / seconds
 	};
 	
 	struct MediumConfiguration
 	{
-		double propagationFactor1 = 1.0; // signal weakens by this factor while propagating the medium
-		double propagationFactor2 = 1.0; // signal weakens by this factor while propagating the medium
+		precision propagationFactor1 = 1.0; // signal weakens by this factor while propagating the medium
+		precision propagationFactor2 = 1.0; // signal weakens by this factor while propagating the medium
 	};
 	
 	struct TransmittingConfiguration
 	{
-		double silenceTime = 0.0f; // 0.0 means continuous wave 
+		precision silenceTime = 0.0f; // 0.0 means continuous wave 
 	};
 	
 	struct RecordingConfiguration
 	{
-		double slowTimeDelta = 0.01; // seconds
-		double fastTimeDelta = 0.0000001; // seconds
+		precision slowTimeDelta = 10e-2; // seconds
+		precision fastTimeDelta = 0.1e-6; // seconds
 	};
 	
 	struct PhysicsConfiguration

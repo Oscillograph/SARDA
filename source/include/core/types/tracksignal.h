@@ -1,9 +1,9 @@
-#ifndef SARDA_TRACK_SIGNAL_H
-#define SARDA_TRACK_SIGNAL_H
+#ifndef SARDELKA_TRACK_SIGNAL_H
+#define SARDELKA_TRACK_SIGNAL_H
 
 #include <include/core/proto-core.h>
 
-namespace sarda
+namespace SARDELKA
 {
 	struct TrackSignal
 	{
