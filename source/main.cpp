@@ -28,25 +28,20 @@ int main(int argc, char** argv) {
 	
 	// 9. Simulate the recorded signal in one go (can be paralleled)
 	SARDELKA_CONSOLE_LOG("Simulation...");
-	SARDELKA::GlobalConfigurationStorage;
-	std::pair<double, double> data;
-	data.first = 0.0;
-	data.second = 1.1;
-	std::complex<double> hello;
-	hello.real(data.first);
-	hello.imag(data.second);
 	
-	arma::cx_mat* ts = new arma::cx_mat(1024, 65536);
-//	ts->randu();
-	std::complex<double>* value;
-	value = &(ts->at(100, 200));
-	
-	SARDELKA_CONSOLE_RED("x: ", data.first, "; y: ", data.second);
-	SARDELKA_CONSOLE_RED("cx: ", value->real(), "; cy: ", value->imag());
-	SARDELKA_CONSOLE_RED("TS Matrix size is: ", ts->size());
-	SARDELKA_CONSOLE_TEAL("Size of double is: ", sizeof(double));
-	SARDELKA_CONSOLE_TEAL("Size of std::complex<double> is: ", sizeof(std::complex<double>));
-	delete ts;
+	SARDELKA::Vec3 Pt = {50.0, 1200.0, 0.0}; // the target position, meters
+	SARDELKA::Vec3 S0 = {0.0, 0.0, 1000.0}; // carrier starting position, meters
+	SARDELKA::Vec3 Vs = {25.0, 0.0, 0.0}; // carrier speed
+
+	double a = (Vs.x * Vs.x - 3*SARDELKA::c * SARDELKA::c);
+	double b = 2 * (Vs.x * S0.x - (Pt.x + Pt.y + Pt.z) * SARDELKA::c);
+	double c = (S0.x * S0.x + S0.y* S0.y + S0.z * S0.z - (Pt.x * Pt.x + Pt.y * Pt.y + Pt.z * Pt.z));
+	double D = (b * b - 4 * a * c);
+	double t1 = (-b + std::sqrt(D)) / (2*a);
+	double t2 = (-b - std::sqrt(D)) / (2*a);
+
+	SARDELKA_CONSOLE_CYAN("D = ", D, ";\nt1 = ", t1, ";\nt2 = ", t2);
+	SARDELKA_CONSOLE_CYAN("Or in meters:", ";\nx1 = ", t1 * Vs.x, ";\nx2 = ", t2 * Vs.x);
 	
 	SARDELKA_CONSOLE_LOG("Simulation complete.");
 	

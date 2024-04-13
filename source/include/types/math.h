@@ -8,12 +8,13 @@
 // alias
 typedef			double				precision;
 
-// constants
-const precision pi	=	3.1415926535897932; // 16 digits precision
-const precision c	=	299792458; // meters/second, speed of electromagnetic wave in vacuum
 
 namespace SARDELKA
 {
+	// constants
+	const precision pi	=	3.1415926535897932; // 16 digits precision
+	const precision c	=	299792458; // meters/second, speed of electromagnetic wave in vacuum
+	
 	// fwd
 	struct		Vec2;
 	struct		Vec3;
